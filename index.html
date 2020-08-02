@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown</title>
+</head>
+
+<body>
+    <div id="countdown">
+        <div id="Letters">
+            <table>
+                <tr v-for="letter in letters">
+                    <th>{{ letter }}</th>
+                </tr>
+            </table>
+        </div>
+        <div id="Numbers">
+
+        </div>
+        <button v-on:click="selectStuff">Pick stuff</button>
+
+    </div>
+    <script src="https://vuejs.org/js/vue.js"></script>
+    <script src="./countdown.js"></script>
+</body>
+
+</html>
