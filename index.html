@@ -5,22 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Countdown</title>
+    <link rel="stylesheet" href="countdown.css">
 </head>
 
 <body>
-    <div id="countdown">
+    <div id="countdownLetters">
         <div id="Letters">
-            <table>
-                <tr v-for="letter in letters">
-                    <th>{{ letter }}</th>
-                </tr>
-            </table>
-        </div>
-        <div id="Numbers">
+
+            <span class="letter" v-on:click="addLetter" v-for="letter in letters">{{ letter }}</span>
 
         </div>
-        <button v-on:click="selectStuff">Pick stuff</button>
 
+        <div v-if="!showInput">
+            <button v-on:click="pickVowel">Vowel</button>
+            <button v-on:click="pickConsonant">Consonant</button>
+
+        </div>
+        <div v-if="showInput">
+            <div> {{ word }}</div>
+            <button v-on:click="removeLastLetter">
+            </button>
+        </div>
+    </div>
+    <hr>
+    <div id="countdownNumbers">
+        <div v-if="!guessNumber">
+            <button v-on:click="addBigNumber">Big</button>
+            <button v-on:click="addSmallNumber">Small</button>
+        </div>
+        <div v-if="guessNumber">
+            {{ guessNumber }}
+        </div>
+        <button v-on:click="addToEquations">+</button>
+        <button v-on:click="addToEquations">-</button>
+        <button v-on:click="addToEquations">*</button>
+        <button v-on:click="addToEquations">/</button>
+        <div>
+            <span v-on:click="addToEquations" v-for="number in numbers"> {{ number}} </span>
+        </div>
+        <div v-for="equation in equations">
+            {{ equation.firstNum }} {{ equation.mathThing }} {{ equation.secondNum }} =
+            <span v-on:click="addToEquations">
+                {{ equation.getResult() }}
+            </span>
+        </div>
     </div>
     <script src="https://vuejs.org/js/vue.js"></script>
     <script src="./countdown.js"></script>
