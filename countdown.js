@@ -76,6 +76,9 @@ var countdownNumbers = new Vue({
             if (this.numbers.length == 6) {
                 return Math.floor(Math.random() * 1000 % 1001);
             }
+        },
+        isDone: function () {
+            return this.equations.some(x => x.getResult() == this.guessNumber)
         }
     }
 })

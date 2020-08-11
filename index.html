@@ -22,8 +22,8 @@
 
         </div>
         <div v-if="showInput">
-            <div> {{ word }}</div>
-            <button v-on:click="removeLastLetter">
+            <span> {{ word }}</span>
+            <button v-if="word.length" v-on:click="removeLastLetter"><-
             </button>
         </div>
     </div>
@@ -34,20 +34,20 @@
             <button v-on:click="addSmallNumber">Small</button>
         </div>
         <div v-if="guessNumber">
-            {{ guessNumber }}
+            {{ guessNumber }} {{ isDone }}
         </div>
         <button v-on:click="addToEquations">+</button>
         <button v-on:click="addToEquations">-</button>
         <button v-on:click="addToEquations">*</button>
         <button v-on:click="addToEquations">/</button>
         <div>
-            <span v-on:click="addToEquations" v-for="number in numbers"> {{ number}} </span>
+            <button v-on:click="addToEquations" v-for="number in numbers"> {{ number}} </button>
         </div>
         <div v-for="equation in equations">
-            {{ equation.firstNum }} {{ equation.mathThing }} {{ equation.secondNum }} =
-            <span v-on:click="addToEquations">
+            {{ equation.firstNum }}  {{ equation.mathThing }} {{ equation.secondNum }} =
+            <button v-on:click="addToEquations">
                 {{ equation.getResult() }}
-            </span>
+            </button>
         </div>
     </div>
     <script src="https://vuejs.org/js/vue.js"></script>
