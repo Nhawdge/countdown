@@ -25,9 +25,8 @@ var countdownLetters = new Vue({
     },
     data: {
         letters: [],
-        alphabet: "abcdefghijklmnopqrstuvwxyz".split(""),
-        vowels: "aeiou".split(""),
-        consonants: "bcdfghjklmnpqrstvwxyz".split(""),
+        vowels: "eeeeeeeeeeeeaaaaaaaaaiiiiiiiiioooooooouuuu".split(""),
+        consonants: "nnnnnnrrrrrrttttttllllssssddddgggbbccmmppffhhvvwwyykjxqz".split(""),
         word: ""
     }
 })

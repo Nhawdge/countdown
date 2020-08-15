@@ -11,15 +11,11 @@
 <body>
     <div id="countdownLetters">
         <div id="Letters">
-
-            <span class="letter" v-on:click="addLetter" v-for="letter in letters">{{ letter }}</span>
-
+            <button class="letter" v-on:click="addLetter" v-for="letter in letters">{{ letter }}</button>
         </div>
-
         <div v-if="!showInput">
             <button v-on:click="pickVowel">Vowel</button>
             <button v-on:click="pickConsonant">Consonant</button>
-
         </div>
         <div v-if="showInput">
             <span> {{ word }}</span>
